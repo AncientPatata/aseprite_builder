@@ -12,6 +12,7 @@ env:
   
 jobs:
   check-version:
+    permissions: write-all
     name: Check latest Aseprite release
     runs-on: ubuntu-latest
     outputs:
@@ -57,6 +58,7 @@ jobs:
         prerelease: false
   
   build-aseprite:
+    permissions: write-all
     name: Build Aseprite
     needs: check-version
     if: ${{ needs.check-version.outputs.should_build }}
